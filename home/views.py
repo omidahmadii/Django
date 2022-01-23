@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Person
 from django.contrib import messages
+from .forms import PersonCreateForm
 
 def home(request):
     all = Person.objects.all()
@@ -17,6 +18,11 @@ def delete(request, person_id):
     #messages.success(request, 'Person Deleted Successfully', 'warning')
     return redirect('home')
 
+
+
+def create(request):
+    form = PersonCreateForm()
+    return render(request, 'create.html', {'form': form})
 
 
 
