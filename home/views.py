@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Person
+from .models import Person, Province
 from django.contrib import messages
-from .forms import PersonCreateForm, PersonUpdateForm
+from .forms import PersonCreateForm, PersonUpdateForm, ProvinceAddProvinceForm
 
 
 def home(request):
@@ -39,7 +39,7 @@ def create(request):
         form = PersonCreateForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            Person.objects.create(firstname=cd['firstname'],lastname=cd['lastname'],phone=cd['phone'],email=cd['email'],)
+            Person.objects.create(firstname=cd['firstname'],lastname=cd['lastname'])
             messages.success(request, 'Person Created Successfully', 'success')
             return redirect('home')
     else:
@@ -47,5 +47,15 @@ def create(request):
         return render(request, 'create.html', {'form': form})
 
 
-
+def add_province(request):
+    if request.method == "POST":
+        form = ProvinceAddProvinceForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            Province.objects.create(provice_per_name=cd['provice_per_name'],provice_eng_name=cd['provice_eng_name'])
+            messages.success(request, 'Province Added Successfully', 'success')
+            return redirect('home')
+    else:
+        form = ProvinceAddProvinceForm()
+        return render(request, 'add_province.html', {'form': form})
 
