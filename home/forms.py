@@ -1,5 +1,5 @@
 from django import forms
-from .models import Person, Province
+from .models import Person, Province, City
 
 
 class PersonCreateForm(forms.ModelForm):
@@ -18,6 +18,12 @@ class PersonCreateForm(forms.Form):
 class ProvinceAddProvinceForm(forms.ModelForm):
     class Meta:
         model = Province
+        fields = '__all__'
+
+
+class CityAddCityForm(forms.ModelForm):
+    class Meta:
+        model = City
         fields = '__all__'
 
 

@@ -11,6 +11,14 @@ class Province(models.Model):
         return self.provice_per_name
 
 
+class City(models.Model):
+    city_per_name = models.CharField(max_length=50, verbose_name='نام فارسی')
+    city_eng_name = models.CharField(max_length=50, verbose_name='نام انگلیسی')
+
+    def __str__(self):
+        return self.city_per_name
+
+
 class Person(models.Model):
     firstname = models.CharField(max_length=50, null=True)
     lastname = models.CharField(max_length=50, null=True)
@@ -22,7 +30,7 @@ class Person(models.Model):
     instagram = models.CharField(max_length=50, null=True)
     country = models.CharField(max_length=50, null=True)
     province = models.ForeignKey(Province, on_delete=models.SET_NULL, null=True)
-    city = models.CharField(max_length=50, null=True)
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
     job = models.CharField(max_length=50, null=True)
     company = models.CharField(max_length=50, null=True)
     height = models.CharField(max_length=50, null=True)

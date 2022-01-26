@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Person, Province
+from .models import Person, Province, City
 from django.contrib import messages
-from .forms import PersonCreateForm, PersonUpdateForm, ProvinceAddProvinceForm
+from .forms import PersonCreateForm, PersonUpdateForm, ProvinceAddProvinceForm, CityAddCityForm
 
 
 def home(request):
@@ -58,4 +58,16 @@ def add_province(request):
     else:
         form = ProvinceAddProvinceForm()
         return render(request, 'add_province.html', {'form': form})
+
+def add_city(request):
+    if request.method == "POST":
+        form = CityAddCityForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            City.objects.create(city_per_name=cd['city_per_name'],city_eng_name=cd['city_eng_name'])
+            messages.success(request, 'City Added Successfully', 'success')
+            return redirect('home')
+    else:
+        form = CityAddCityForm()
+        return render(request, 'add_city.html', {'form': form})
 

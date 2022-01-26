@@ -24,5 +24,6 @@ urlpatterns = [
     path('update/<int:person_id>/', views.update, name='update'),
     path('create/', views.create, name='create'),
     path('add_province/', views.add_province, name='add_province'),
+    path('add_city/', views.add_city, name='add_city'),
 
 ]
