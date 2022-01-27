@@ -5,7 +5,7 @@ from .models import Person, Province, City
 class PersonCreateForm(forms.ModelForm):
     class Meta:
         model = Person
-        fields = ('first_name', 'last_name','gender')
+        fields = ('first_name', 'last_name')
 
         #fields = '__all__'
 """    

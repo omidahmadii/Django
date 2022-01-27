@@ -29,6 +29,9 @@ def update(request, person_id):
             form.save()
             messages.success(request, 'Person Updated Successfully', 'success')
             return redirect('home')
+        else:
+            messages.success(request, 'Person Did not Update Successfully', 'warning')
+            return render(request, 'detail.html', {'person': person })
     else:
         form = PersonUpdateForm(instance=person)
         return render(request, 'update.html', {'form': form})
@@ -39,7 +42,7 @@ def create(request):
         form = PersonCreateForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            Person.objects.create(first_name=cd['first_name'],last_name=cd['last_name'])
+            Person.objects.create(first_name=cd['first_name'], last_name=cd['last_name'])
             messages.success(request, 'Person Created Successfully', 'success')
             return redirect('home')
     else:
@@ -65,7 +68,7 @@ def add_city(request):
         form = CityAddCityForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            City.objects.create(city_per_name=cd['city_per_name'],city_eng_name=cd['city_eng_name'])
+            City.objects.create(city_per_name=cd['city_per_name'], city_eng_name=cd['city_eng_name'])
             messages.success(request, 'City Added Successfully', 'success')
             return redirect('home')
     else:
