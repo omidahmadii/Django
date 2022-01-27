@@ -3,9 +3,7 @@
 {% block content %}
     <a href="{% url 'delete' person.id %}" class="btn-danger">Delete</a>
     <a href="{% url 'update' person.id %}" class="btn-info">Update</a>
-    <h3>{{ person.firstname }} </h3>
-    <h3>{{ person.lastname }} </h3>
-    <h3>{{ person.phone }} </h3>
-    <h3>{{ person.email }} </h3><hr>
+    <h3>{{ person.first_name }} </h3>
+    <h3>{{ person.last_name }} </h3>
 
 {% endblock %}

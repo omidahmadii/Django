@@ -9,7 +9,7 @@
 {% block content %}
     <div class="card">
     {% for person in persons %}
-        <a class="card-body" href="{% url 'details' person.id %} "> {{ person.firstname }} {{ person.lastname }} </a><br><hr>
+        <a class="card-body" href="{% url 'details' person.id %} "> {{ person.first_name }} {{ person.last_name }} </a><br><hr>
     {% endfor %}
 
     </div>

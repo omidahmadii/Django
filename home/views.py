@@ -39,7 +39,7 @@ def create(request):
         form = PersonCreateForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            Person.objects.create(firstname=cd['firstname'],lastname=cd['lastname'])
+            Person.objects.create(first_name=cd['first_name'],last_name=cd['last_name'])
             messages.success(request, 'Person Created Successfully', 'success')
             return redirect('home')
     else:
@@ -58,6 +58,7 @@ def add_province(request):
     else:
         form = ProvinceAddProvinceForm()
         return render(request, 'add_province.html', {'form': form})
+
 
 def add_city(request):
     if request.method == "POST":

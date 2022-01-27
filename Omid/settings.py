@@ -75,14 +75,16 @@ WSGI_APPLICATION = 'Omid.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Omid',
         'USER': 'omid',
         'PASSWORD': '#Kent228mud120',
         'HOST': '84.241.29.228',
         'PORT': '3306',
+
     }
 }
 
@@ -94,7 +96,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+"""
 
 
 # Password validation
