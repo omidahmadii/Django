@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0hm5=dd7ae*_xa#xcz0gpi(w%sq!(5)10$6h%9h-ki=zvg)$%_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['fahraji.hopenetwork.ir']
+#ALLOWED_HOSTS = ['fahraji.hopenetwork.ir']
+ALLOWED_HOSTS = []
 
 
 # Application definition
